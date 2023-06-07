@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>행운의 로또 번호 추출기</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f2f2f2;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        h1, h2, h3 {
+            color: #0066b3;
+        }
+        .lotto-box,
+        .lotto-box2{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 703px;
+            margin-bottom: 20px;
+        }
+        .lotto-box div,
+        .lotto-box2 div{
+            border: 3px solid #0066b3;
+            background-color: #f7941d;
+            color: #ffffff;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            margin: 5px;
+        }
+        .lotto-btn{
+            width: 703px;
+            height: 50px;
+            font-size: 30px;
+            margin: 10px;
+            border: none;
+            color: #ffffff;
+            background-color: #f7941d;
+            cursor: pointer;
+        }
+        /* .lotto-history p {
+            font-size: 30px;
+            color: #0066b3;
+            margin: 10px 0;
+        } */
+        .lotto-history p {
+            font-size: 30px;
+            color: #0066b3;
+            margin: 10px 0;
+            animation: colorChange 3s infinite;
+        }
+        @keyframes colorChange {
+            0% {color: royalblue;}
+            50% {color: gold}
+            100% {color: royalblue;}
+        }
+    </style>
+</head>
+<body>
+    <h1>행운의 로또 번호 추출 기계</h1>
+    <h2>로또 박스</h2>
+    <h3>1000%당첨 로또 복권 인생 역전!</h3>
+    <h5>행운이 필요한 당신을 위해 준비한 행운의 로또 추출기입니다.<br>이곳에서 그 행운을 찾아보세요.<br>감사의 마음을 후원으로 표현한다면, 더 나은 서비스로 보답하겠습니다.
+        <br>후원계좌 : 농협은행 302-1597-3888-41 황X섭</h5>
+    <div class="lotto-box">
+    </div>
+    <button class="lotto-btn">인.생.역.전.번.호.추.출!</button>
+    <!-- <button class="reset-btn">영혼을 더 담아서 클릭!</button> -->
+    <div class="lotto-box2">
+    </div>
+    <div class="lotto-history">
+    </div>
+</body>
+<script>
+    let lottoBtn = document.querySelector('.lotto-btn');
+    let lottoNum = [];
+    let lottoReslut = [];
+    let lottoHistory = document.querySelector('.lotto-history');
+    function init(){
+        for (let i = 1; i <= 45; i++) {
+            lottoNum.push(i);
+            let _div = document.createElement('div');
+            _div.className = "item"+i;
+            _div.innerHTML = i;
+            document.querySelector(".lotto-box").append(_div);
+        }
+    }
+    lottoBtn.addEventListener("click", function(){
+        document.querySelector('.lotto-box2').innerHTML = '';
+        while(lottoReslut.length < 6){
+            let num = Math.floor(Math.random() * 45) + 1;
+            if(lottoReslut.indexOf(num) === -1) {
+                lottoReslut.push(num); 
+                let lottoItem = document.querySelector(".item" + num); 
+                document.querySelector(".lotto-box2").append(lottoItem.cloneNode(true));
+            }
+        }
+        let [text1, text2, text3, text4, text5, text6] = lottoReslut;
+        let pTag = document.createElement('p');
+        pTag.textContent = `당첨번호: ${text1}, ${text2}, ${text3}, ${text4}, ${text5}, ${text6}`;
+        lottoHistory.append(pTag);
+        console.log(text1, text2, text3, text4, text5, text6, "당첨번호");
+        
+        lottoReslut = [];
+    })
+    init();
+</script>
+</html>
