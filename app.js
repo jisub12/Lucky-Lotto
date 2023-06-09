@@ -7,7 +7,7 @@ const path = require("path");
 const app = express();
 
 app.use(cors({
-    origin : "http://localhost:7777/",
+    origin : "http://127.0.0.1:5504/",
     credentials : true
 }));
 
