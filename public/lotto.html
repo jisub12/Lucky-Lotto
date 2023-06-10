@@ -24,7 +24,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            width: 703px;
+            width: 430px;
             margin-bottom: 20px;
         }
         .lotto-box div,
@@ -41,7 +41,7 @@
             margin: 5px;
         }
         .lotto-btn{
-            width: 703px;
+            width: 430px;
             height: 50px;
             font-size: 30px;
             margin: 10px;
@@ -50,11 +50,6 @@
             background-color: #f7941d;
             cursor: pointer;
         }
-        /* .lotto-history p {
-            font-size: 30px;
-            color: #0066b3;
-            margin: 10px 0;
-        } */
         .lotto-history p {
             font-size: 30px;
             color: #0066b3;
@@ -65,6 +60,10 @@
             0% {color: royalblue;}
             50% {color: gold}
             100% {color: royalblue;}
+        }
+        .ad-banner{
+            width: 250px;
+            height: 250px;
         }
     </style>
 </head>
@@ -77,11 +76,19 @@
     <div class="lotto-box">
     </div>
     <button class="lotto-btn">인.생.역.전.번.호.추.출!</button>
-    <!-- <button class="reset-btn">영혼을 더 담아서 클릭!</button> -->
     <div class="lotto-box2">
     </div>
     <div class="lotto-history">
     </div>
+    <!-- 배너 -->
+    <div class="ad-banner">
+        <ins class="kakao_ad_area" style="display:none;"
+        data-ad-unit = "DAN-qxUXm1PS8kpspmSM"
+        data-ad-width = "250"
+        data-ad-height = "250"></ins>
+        <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+    </div>
+
 </body>
 <script>
     let lottoBtn = document.querySelector('.lotto-btn');
