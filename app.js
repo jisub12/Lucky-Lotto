@@ -1,5 +1,3 @@
-// express cors
-
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -11,10 +9,16 @@ app.use(cors({
     credentials : true
 }));
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.get('/lotto.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'lotto.html'))
+})
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'lotto.html'))
+app.get('/robots.txt', (req, res) => {
+    res.sendFile(path.join(__dirname, 'robots.txt'))
+})
+
+app.get('/sitemap.xml', (req, res) => {
+    res.sendFile(path.join(__dirname, 'sitemap.xml'))
 })
 
 app.listen(7777, ()=> {
