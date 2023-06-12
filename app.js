@@ -9,8 +9,8 @@ app.use(cors({
     credentials : true
 }));
 
-app.get('/lotto.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'lotto.html'))
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public'))
 })
 
 app.get('/robots.txt', (req, res) => {
