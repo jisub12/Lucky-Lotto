@@ -9,6 +9,8 @@ app.use(cors({
     credentials : true
 }));
 
+app.use(express.static(path(__dirname)));
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public'))
 })
