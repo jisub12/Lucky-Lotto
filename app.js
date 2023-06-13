@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+const fs = require("fs");
 
 const app = express();
 
@@ -9,8 +10,11 @@ app.use(cors({
     credentials : true
 }));
 
+app.use(express.static(__dirname));
+
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public'))
+    const page = fs.readFileSync('./public/lotto.html',"utf-8");
+    res.send(page);
 })
 
 app.listen(7777, ()=> {
