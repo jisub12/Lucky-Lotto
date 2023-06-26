@@ -12,15 +12,7 @@ app.use(cors({
 
 app.use(express.static(__dirname));
 
-// app.use(express.path.join((__dirname, 'assets')));
-
 app.use('/public/assets', express.static(path.join(__dirname, 'public', 'assets')));
-// app.use(express.static(path.join(__dirname, 'public', 'assets')));
-
-// app.get('/', (req, res) => {
-//     const assets = fs.readFileSync('./public/assets/', "utf-8");
-//     res.send(assets);
-// })
 
 app.get('/', (req, res) => {
     const page = fs.readFileSync('./public/lotto.html',"utf-8");
