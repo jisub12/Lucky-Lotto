@@ -19,11 +19,6 @@ app.get('/', (req, res) => {
     res.send(page);
 })
 
-app.get('/crossfit', (req, res) => {
-    const page2 = fs.readFileSync('./public/crossfit.html', "utf-8");
-    res.send(page2);
-})
-
 app.listen(7777, ()=> {
     console.log("7777 Server Open")
 })
